@@ -13,5 +13,5 @@
 
 ### Collections
 
-[Sorting(배열, 리스트)](./collections/Sort(배열,%20리스트).md)
+[Sorting(배열, 리스트)](./collections/Sorting(배열,%20리스트).md)
 
