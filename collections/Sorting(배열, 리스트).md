@@ -1,4 +1,4 @@
-# Sort
+# Sorting(배열, 리스트)
 
 &nbsp;
 
