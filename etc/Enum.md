@@ -1,6 +1,6 @@
 # Enum
 
-### Basic 
+## Basic 
 
 **non-enum**
 ```java
@@ -11,7 +11,9 @@ class State {
 }
 ```
 
-**Enum**
+&nbsp;
+
+**enum**
 ```java
 enum State {
     READY, PLAY, EXIT
@@ -19,8 +21,9 @@ enum State {
 ```
 
 &nbsp;
+&nbsp;
 
-### Adv
+## Adv
 
 **non-enum**
 ```java
@@ -108,5 +111,79 @@ public class Application {
         Arrays.stream(State.values()).forEach(System.out::println); // READY PLAY EXIT
         System.out.println(State.valueOf("READY")); // READY
     }
+}
+```
+
+&nbsp;
+&nbsp;
+
+## abstract Method
+
+```java
+// 이펙티브자바 <Item 34>
+enum Operation {
+    PLUS("+") {
+        public double apply(double x, double y) { return x + y; }
+    },
+    MINUS("-") {
+        public double apply(double x, double y) { return x - y; }
+    },
+    TIMES("*") {
+        public double apply(double x, double y) { return x * y; }
+    },
+    DIVIDE("/") {
+        public double apply(double x, double y) { return x / y; }
+    };
+
+    private final String symbol;
+
+    Operation(String symbol) { this.symbol = symbol; }
+
+    @Override public String toString() { return symbol; }
+
+    public abstract double apply(double x, double y);
+}
+
+public class AbstractMethod {
+    public static void main(String[] args) {
+        double x = 1.1;
+        double y = 3.3;
+        for (Operation op : Operation.values())
+            System.out.printf("%f %s %f = %f%n",
+                    x, op, y, op.apply(x, y));
+
+        // 1.100000 + 3.300000 = 4.400000
+        // 1.100000 - 3.300000 = -2.200000
+        // 1.100000 * 3.300000 = 3.630000
+        // 1.100000 / 3.300000 = 0.333333
+    }
+}
+```
+
+&nbsp;
+
+**`Functional Interface`를 이용한 리팩토링**
+```java
+// 이펙티브자바 <Item 42>
+enum Operation {
+    PLUS("+", (x, y) -> x + y),
+    MINUS("-", (x, y) -> x - y),
+    TIMES("*", (x, y) -> x * y),
+    DIVIDE("/", (x, y) -> x / y);
+
+    private final String symbol;
+    private final DoubleBinaryOperator op;
+
+    Operation(String symbol, DoubleBinaryOperator op) {
+        this.symbol = symbol;
+        this.op = op;
+    }
+
+    public double apply(double x, double y) {
+        return op.applyAsDouble(x, y);
+    }
+
+    @Override
+    public String toString() { return symbol; }
 }
 ```
