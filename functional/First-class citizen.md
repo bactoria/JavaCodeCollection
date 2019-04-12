@@ -9,26 +9,40 @@
 
 ### Object is First-class citizen
 ```java
-Lotto lotto1 = new Lotto();
+public class Application {
+    public static void main(String[] args) {
+        Lotto lotto = new Lotto();
 
-calculateRank(lotto1); // 가능 (1)
-Lotto lotto2 = makeLotto(); // 가능 (2)
-Lotto lotto3 = lotto2; // 가능 (3)
+        Rank rank = calculateRank(lotto); // 가능 (1)
+        lotto = makeLotto(); // 가능 (2)
+        Lotto lottoCopy = lotto; // 가능 (3)
+    }
 
-=> 가능
+    private static Rank calculateRank(Lotto lotto) {
+        return new Rank(lotto);
+    }
+
+    private static Lotto makeLotto() {
+        return new Lotto();
+    }
+}
 ```
 
 &nbsp;
 
 ### Method is not First-class citizen
 ```java
-public Lotto getLotto() { ... }
+public class Application {
+    public static void main(String[] args) {
+        calculateRank(getLotto); // 불가능 (1)
+        public getLotto doSomething() { return getLotto; } // 불가능 (2)
+        SomeMethod m = getLotto; // 불가능 (3)
+    }
 
-calculateRank(getLotto); // 불가능 (1)
-public getLotto doSomething() { return getLotto; } // 불가능 (2)
-SomeMethod m = getLotto; // 불가능 (3)
-
-=> 불가능
+    private static Lotto getLotto() { 
+        return new Lotto() 
+    }
+}
 ```
 
 &nbsp;
@@ -43,10 +57,10 @@ interface Operation<T, U, R> {
 public class Application {
     public static void main(String[] args) {
         int result;
-
         Operation<Integer, Integer, Integer> plus = (x, y) -> x + y;
-        Operation<Integer, Integer, Integer> plusCopy = plus;
-        result = plusCopy.operate(10, 30)); // 가능 (3)
+
+        Operation<Integer, Integer, Integer> plusCopy = plus; // 가능 (3)
+        result = plusCopy.operate(10, 30));
         System.out.println(result); // 40
 
         result = operate(20, plus, 30)); // 가능 (1)
