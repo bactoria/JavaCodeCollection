@@ -15,7 +15,7 @@
 - [Stream 예외처리](./stream/Stream%20예외처리.md)
 
 ### Functional
-- [First-class citizen](./functional/First-class citizen.md)
+- [First-class citizen](./functional/First-class%20citizen.md)
 
 ### Etc
 - [BigDecimal](./etc/BigDecimal.md)
