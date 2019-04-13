@@ -49,32 +49,29 @@ public class Application {
 
 ### 자바8 - First-class Function 지원
 ```java
-@FunctionalInterface
-interface Operation<T, U, R> {
-    R operate(T t, U u);
-}
+import java.util.function.IntBinaryOperator;
 
 public class Application {
     public static void main(String[] args) {
         int result;
-        Operation<Integer, Integer, Integer> plus = (x, y) -> x + y;
+        IntBinaryOperator plus = (x, y) -> x + y;
 
-        Operation<Integer, Integer, Integer> plusCopy = plus; // 가능 (3)
-        result = plusCopy.operate(10, 30));
+        IntBinaryOperator plusCopy = plus; // 가능 (3)
+        result = plusCopy.applyAsInt(10, 30);
         System.out.println(result); // 40
 
-        result = operate(20, plus, 30)); // 가능 (1)
+        result = operate(20, plus, 30); // 가능 (1)
         System.out.println(result); // 50
 
-        result = plusMethod().operate(40, 30)); // 가능 (2)
+        result = plusMethod().applyAsInt(40, 30); // 가능 (2)
         System.out.println(result); // 70
     }
 
-    private static Integer operate(int x, Operation<Integer, Integer, Integer> operation, int y) {
-        return operation.operate(x, y);
+    private static Integer operate(int x, IntBinaryOperator operator, int y) {
+        return operator.applyAsInt(x, y);
     }
 
-    private static Operation<Integer, Integer, Integer> plusMethod() {
+    private static IntBinaryOperator plusMethod() {
         return (o1, o2) -> o1 + o2;
     }
 }

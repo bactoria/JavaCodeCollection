@@ -16,6 +16,7 @@
 
 ### Functional
 - [First-class citizen](./functional/First-class%20citizen.md)
+- [Function](./functional/Function.md)
 
 ### Etc
 - [BigDecimal](./etc/BigDecimal.md)
