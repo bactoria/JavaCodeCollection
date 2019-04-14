@@ -10,6 +10,7 @@
 
 ### Collections
 - [Sorting(배열, 리스트)](./collections/Sorting(배열,%20리스트).md)
+- [LinkedHashMap - FIFO 캐시](./collections/LinkedHashMap%20-%20FIFO%20캐시.md)
 
 ### Stream
 - [Stream 예외처리](./stream/Stream%20예외처리.md)
