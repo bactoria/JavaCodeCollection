@@ -14,6 +14,7 @@
 
 ### Stream
 - [Stream 예외처리](./stream/Stream%20예외처리.md)
+- [groupingBy](./stream/groupingBy.md)
 
 ### Functional
 - [First-class citizen](./functional/First-class%20citizen.md)
