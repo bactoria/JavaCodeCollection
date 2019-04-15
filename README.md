@@ -4,23 +4,18 @@
 
 &nbsp;
 
-### Object
 - [객체 Clone](./object/객체%20clone.md)
 - [equals()](./object/equals().md)
-
-### Collections
 - [Sorting(배열, 리스트)](./collections/Sorting(배열,%20리스트).md)
-- [LinkedHashMap - FIFO 캐시](./collections/LinkedHashMap%20-%20FIFO%20캐시.md)
+- [LinkedHashMap - FIFO, LRU CACHE](./collections/LinkedHashMap%20-%20FIFO,%20LRU%20CACHE.md)
+- [BigDecimal](./etc/BigDecimal.md)
 
-### Stream
+### Java 1.5
+- [Enum](./etc/Enum.md)
+
+### Java 8
+- [Function](./functional/Function.md)
+- [First-class citizen](./functional/First-class%20citizen.md)
+- [Optional](./etc/Optional.md)
 - [Stream 예외처리](./stream/Stream%20예외처리.md)
 - [groupingBy](./stream/groupingBy.md)
-
-### Functional
-- [First-class citizen](./functional/First-class%20citizen.md)
-- [Function](./functional/Function.md)
-
-### Etc
-- [BigDecimal](./etc/BigDecimal.md)
-- [Enum](./etc/Enum.md)
-- [Optional](./etc/Optional.md)
