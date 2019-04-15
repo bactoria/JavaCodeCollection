@@ -1,4 +1,4 @@
-# LinkedHashMap - FIFO 캐시
+# LinkedHashMap - FIFO, LRU CACHE
 
 &nbsp;
 
@@ -18,6 +18,7 @@ public class LinkedHashMap<K,V> extends HashMap<K,V> implements Map<K,V> {
 
 ## FIFO CACHE
 
+**FifoCache.java**
 ```java
 // 주의: Thread-Safe 하지 않음
 public class FifoCache<K, V> {
@@ -35,10 +36,16 @@ public class FifoCache<K, V> {
     public void put(K k, V v) {
         CACHE.put(k, v);
     }
+
+    public V get(K k) {
+        return CACHE.get(k);
+    }
 }
 ```
 
+&nbsp;
 
+**Application.java**
 ```java
 public class Application {
     public static void main(String[] args) {
@@ -60,6 +67,7 @@ public class Application {
 
 ## LRU CACHE
 
+**LRUCache.java**
 ```java
 public class LRUCache<K, V> {
     private Map<K, V> CACHE;
@@ -85,6 +93,9 @@ public class LRUCache<K, V> {
 
 - [0.75f 를 붙이는 이유](https://darksilber.tistory.com/entry/LinkedHashmap-LRU-Caching)
 
+&nbsp;
+
+**Application.java**
 ```java
 public class Application {
     public static void main(String[] args) {
