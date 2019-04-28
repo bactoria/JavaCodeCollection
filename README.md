@@ -19,3 +19,6 @@
 - [Optional](./etc/Optional.md)
 - [Stream 예외처리](./stream/Stream%20예외처리.md)
 - [groupingBy](./stream/groupingBy.md)
+
+### Java 10
+- [flatMap은 lazy?](./stream/flatMap은%20lazy.md)
